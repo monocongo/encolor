@@ -13,6 +13,13 @@ class Encolorizer():
         self.network = cv2.dnn.readNetFromCaffe(prototxt_path, model_path)
         self.cluster_center_points = np.load(points_path)
 
+        # add the cluster centers as 1x1 convolutions to the model
+        class8 = self.network.getLayerId("class8_ab")
+        conv8 = self.network.getLayerId("conv8_313_rh")
+        self.cluster_center_points = self.cluster_center_points.transpose().reshape(2, 313, 1, 1)
+        self.network.getLayer(class8).blobs = [self.cluster_center_points.astype("float32")]
+        self.network.getLayer(conv8).blobs = [np.full([1, 313], 2.606, dtype="float32")]
+
     def colorize(self,
                  image: np.ndarray) -> np.ndarray:
 
