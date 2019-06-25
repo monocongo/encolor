@@ -17,3 +17,15 @@ We can now specify these files as configuration arguments to the scripts
 $ python colorize_image.py --image /home/ubuntu/images/automobile.jpg --prototxt $MODEL_DIR/colorization_deploy_v2.prototxt --model $MODEL_DIR/colorization_release_v2.caffemodel --points $MODEL_DIR/pts_in_hull.npy
 $ python colorize_video.py --video /home/ubuntu/video/city_park.mp4 --prototxt $MODEL_DIR/colorization_deploy_v2.prototxt --model $MODEL_DIR/colorization_release_v2.caffemodel --points $MODEL_DIR/pts_in_hull.npy
 ```
+
+##### Citations:
+
+
+@inproceedings{zhang2016colorful,
+  title={Colorful Image Colorization},
+  author={Zhang, Richard and Isola, Phillip and Efros, Alexei A},
+  booktitle={ECCV},
+  year={2016}
+}
+
+[pyimagesearch: Black and white image colorization with OpenCV and Deep Learning](https://www.pyimagesearch.com/2019/02/25/black-and-white-image-colorization-with-opencv-and-deep-learning/)
